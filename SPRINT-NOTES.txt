@@ -1,6 +1,42 @@
+Starting a new thread in rPython.
+=================================
+
 Start a thread like this:
 
     rthread.start_new_thread(func, ())
 
 where func is a global.
 Func should call rthread.gc_thread_start() and rthread.gc_thread_die()
+
+
+Files to be changed when adding a new channel type.
+===================================================
+
+Files that mention tasks:
+-------------------------
+
+naulang/interpreter/interpreter.py
+naulang/runtime/executioncontext.py
+naulang/interpreter/objectspace/channel.py
+naulang/interpreter/objectspace/method.py
+
+tests/interpreter/test_interpreter.py
+tests/runtime/test_executioncontext.py
+
+
+Files that mention channels.
+----------------------------
+
+naulang/compiler/ast.py
+naulang/compiler/translator.py
+naulang/interpreter/space.py
+naulang/interpreter/objectspace/primitives/builtin_definitions.py
+naulang/interpreter/objectspace/channel.py
+naulang/interpreter/interpreter.py
+
+tests/functional/test_basic_async.nl
+tests/functional/test_async_start_and_stop.nl
+tests/compiler/test_compiler.py
+tests/compiler/test_parser.py
+tests/benchmarks/baselines/prime-sieve.go
+tests/benchmarks/prime-sieve.nl
